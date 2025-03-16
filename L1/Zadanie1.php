@@ -1,5 +1,5 @@
 <?php
-$owoce = array("jabłko", "banan", "pomarańcza", "gruszka", "śliwka");
+$owoce = array("jablko", "banan", "pomarancza", "gruszka", "sliwka");
 
 foreach ($owoce as $owoc) {
     $odwrocony = "";
@@ -9,6 +9,6 @@ foreach ($owoce as $owoc) {
 
     $czyP = ($owoc[0] == 'p') ? "Tak" : "Nie";
 
-    echo "Odwrocony owoc: $odwrocony | Zaczyna się na 'p'?: $czyP\n";
+    echo "Odwrocony owoc: $odwrocony <br> Zaczyna się na p?: $czyP<br>";
 }
 ?>

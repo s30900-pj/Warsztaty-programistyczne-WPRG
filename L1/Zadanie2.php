@@ -1,6 +1,6 @@
 <?php
-$poczatek = 10; 
-$koniec = 50;   
+$poczatek = 11; 
+$koniec = 66;   
 
 function czyPierwsza($liczba) {
     if ($liczba < 2) {
