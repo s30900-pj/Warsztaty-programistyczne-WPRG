@@ -35,6 +35,6 @@ for ($i = 0; $i < count($slowa) - 1; $i += 2) {
 }
 
 foreach ($asocjacyjna as $klucz => $wartosc) {
-    echo "$klucz => $wartosc\n";
+    echo "$klucz => $wartosc<br>";
 }
 ?>
