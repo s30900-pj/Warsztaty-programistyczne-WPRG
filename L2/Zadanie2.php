@@ -47,10 +47,8 @@
 <body>
     <h1>Formularz rezerwacji hotelu</h1>
     
-    <!-- Sekcja formularza -->
     <div class="formularz">
         <form method="post" action="">
-            <!-- 1. Ilość osób (lista rozwijana) -->
             <div class="input-group">
                 <label for="ilosc_osob">Ilość osób:</label>
                 <select name="ilosc_osob" id="ilosc_osob" required>
@@ -62,7 +60,6 @@
                 </select>
             </div>
             
-            <!-- 2. Dane osoby rezerwującej -->
             <div class="input-group">
                 <label for="imie">Imię (wymagane):</label>
                 <input type="text" id="imie" name="imie" required>
@@ -79,13 +76,11 @@
                 <label for="email">E-mail (wymagane):</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <!-- Opcjonalnie dane karty kredytowej -->
             <div class="input-group">
                 <label for="karta">Nr karty kredytowej:</label>
                 <input type="text" id="karta" name="karta" placeholder="np. 1111-2222-3333-4444">
             </div>
             
-            <!-- 3. Termin pobytu, godzina przyjazdu -->
             <div class="input-group">
                 <label for="data_przyjazdu">Data przyjazdu:</label>
                 <input type="date" id="data_przyjazdu" name="data_przyjazdu">
@@ -95,14 +90,12 @@
                 <input type="time" id="godzina_przyjazdu" name="godzina_przyjazdu">
             </div>
             
-            <!-- 4. Dodatkowe łóżko -->
             <div class="checkbox-group">
                 <label>Potrzebne łóżko dla dziecka?</label>
                 <input type="checkbox" id="dostawka" name="dostawka" value="tak">
                 <label for="dostawka">Tak</label>
             </div>
             
-            <!-- 5. Udogodnienia -->
             <div class="checkbox-group">
                 <label>Udogodnienia:</label><br>
                 <input type="checkbox" id="klimatyzacja" name="udogodnienia[]" value="klimatyzacja">
@@ -118,7 +111,6 @@
                 <label for="miniBar">Mini-bar</label><br>
             </div>
             
-            <!-- Przycisk wysłania -->
             <div class="input-group">
                 <input type="submit" value="Zarezerwuj">
             </div>
@@ -127,7 +119,6 @@
     
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Pobieranie danych z tablicy $_POST
     $iloscOsob = isset($_POST['ilosc_osob']) ? $_POST['ilosc_osob'] : '';
     $imie = isset($_POST['imie']) ? $_POST['imie'] : '';
     $nazwisko = isset($_POST['nazwisko']) ? $_POST['nazwisko'] : '';
@@ -139,7 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dostawka = isset($_POST['dostawka']) ? 'tak' : 'nie';
     $udogodnienia = isset($_POST['udogodnienia']) ? $_POST['udogodnienia'] : [];
 
-    // Wyświetlenie podsumowania w ładny i przejrzysty sposób:
     echo '<div class="wynik">';
     echo '<h2>Podsumowanie rezerwacji</h2>';
 
