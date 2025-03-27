@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz rezerwacji hotelu</title>
+    <script>
+        function pokazFormularze() {
+            var ilosc = document.getElementById('ilosc_osob').value;
+            var kontener = document.getElementById('formularze_osob');
+            kontener.innerHTML = ''; 
+
+            for (var i = 1; i <= ilosc; i++) {
+                kontener.innerHTML += 
+                    '<fieldset style="margin-bottom:10px;">' +
+                        '<legend>Osoba ' + i + '</legend>' +
+                        '<div class="input-group">' +
+                          '<label>Imię:</label>' +
+                          '<input type="text" name="imie' + i + '" required>' +
+                        '</div>' +
+                        '<div class="input-group">' +
+                          '<label>Nazwisko:</label>' +
+                          '<input type="text" name="nazwisko' + i + '" required>' +
+                        '</div>' +
+                        '<div class="input-group">' +
+                          '<label>E-mail:</label>' +
+                          '<input type="email" name="email' + i + '" required>' +
+                        '</div>' +
+                    '</fieldset>';
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .formularz {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .input-group {
+            margin-bottom: 8px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            margin-bottom: 6px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="time"],
+        select {
+            width: 200px;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formularz rezerwacji hotelu</h1>
+    <div class="formularz">
+        <form method="post" action="formularz.php">
+            <div class="input-group">
+                <label for="ilosc_osob">Ilość osób:</label>
+                <select name="ilosc_osob" id="ilosc_osob" onchange="pokazFormularze()" required>
+                    <option value="" disabled selected hidden>Wybierz</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <div id="formularze_osob"></div>
+
+            <div class="input-group">
+                <label for="adres">Adres:</label>
+                <input type="text" id="adres" name="adres">
+            </div>
+
+            <div class="input-group">
+                <label for="karta">Nr karty kredytowej:</label>
+                <input type="text" id="karta" name="karta">
+            </div>
+
+            <div class="input-group">
+                <label for="data_przyjazdu">Data przyjazdu:</label>
+                <input type="date" id="data_przyjazdu" name="data_przyjazdu">
+            </div>
+
+            <div class="input-group">
+                <label for="godzina_przyjazdu">Godzina przyjazdu:</label>
+                <input type="time" id="godzina_przyjazdu" name="godzina_przyjazdu">
+            </div>
+
+            <div class="input-group">
+                <label>Potrzebne łóżko dla dziecka?</label>
+                <input type="checkbox" id="dostawka" name="dostawka" value="tak">
+                <label for="dostawka">Tak</label>
+            </div>
+
+            <div class="input-group">
+                <label>Udogodnienia:</label><br>
+                <input type="checkbox" id="klimatyzacja" name="udogodnienia[]" value="klimatyzacja">
+                <label for="klimatyzacja">Klimatyzacja</label><br>
+
+                <input type="checkbox" id="popielniczka" name="udogodnienia[]" value="popielniczka">
+                <label for="popielniczka">Popielniczka dla palących</label><br>
+
+                <input type="checkbox" id="tv" name="udogodnienia[]" value="telewizja">
+                <label for="tv">Telewizor</label><br>
+
+                <input type="checkbox" id="miniBar" name="udogodnienia[]" value="mini-bar">
+                <label for="miniBar">Mini-bar</label>
+            </div>
+
+            <div class="input-group">
+                <input type="submit" value="Zarezerwuj">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
